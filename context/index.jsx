@@ -6,6 +6,7 @@ import {
   signInWithPopup,
   signOut,
   onAuthStateChanged,
+  createUserWithEmailAndPassword,
 } from "firebase/auth";
 import { app } from "../app/firebase/firebaseConfig";
 
@@ -18,6 +19,15 @@ export function Appwrapper({ children }) {
   const auth = getAuth(app);
   const googleAuthProvider = new GoogleAuthProvider();
 
+  const signUpWithEmailAndPassword = (email, password) => {
+    createUserWithEmailAndPassword(auth, email, password)
+      .then(() => {
+        window.location.href = "/";
+      })
+      .catch((error) => {
+        alert(error.message);
+      });
+  };
   // Sign in with email
   const signInUser = (email, password) => {
     signInWithEmailAndPassword(auth, email, password)
@@ -61,7 +71,15 @@ export function Appwrapper({ children }) {
 
   // Provide the context value to the children
   return (
-    <AppContext.Provider value={{ user, signInUser, signUpWithGoogle, logout }}>
+    <AppContext.Provider
+      value={{
+        user,
+        signInUser,
+        signUpWithGoogle,
+        logout,
+        signUpWithEmailAndPassword,
+      }}
+    >
       {children}
     </AppContext.Provider>
   );

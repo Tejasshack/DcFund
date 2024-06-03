@@ -1,35 +1,40 @@
-"use client"
-import React, { useState } from "react"
-import { useAppContext } from "../../context/index" // Import the context hook
-import Link from "next/link"
+"use client";
+import React, { useState } from "react";
+import { useAppContext } from "../../context/index"; // Import the context hook
+import Link from "next/link";
 
 const SignupPage = () => {
-  const { signUpWithGoogle, signInUser } = useAppContext() // Access context values
-  const [email, setEmail] = useState("")
-  const [password, setPassword] = useState("")
-  const [fullName, setFullName] = useState("")
+  const { signUpWithGoogle, signInUser, signUpWithEmailAndPassword } =
+    useAppContext(); // Access context values
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [fullName, setFullName] = useState("");
 
   const handleSignUpWithGoogle = () => {
-    signUpWithGoogle() // Call the signUpWithGoogle function from context
-  }
+    signUpWithGoogle(); // Call the signUpWithGoogle function from context
+  };
 
-  const handleSignInUser = (e) => {
-    e.preventDefault()
-    signInUser(email, password) // Call the signInUser function from context
-  }
+  // const handleSignnInUser = (e) => {
+  //   e.preventDefault();
+  //   signInUser(email, password); // Call the signInUser function from context
+  // };
+  const handleSignUpUser = (e) => {
+    e.preventDefault();
+    signUpWithEmailAndPassword(email, password);
+  };
 
   // Event handlers for input fields
   const handleFullNameChange = (event) => {
-    setFullName(event.target.value)
-  }
+    setFullName(event.target.value);
+  };
 
   const handleEmailChange = (event) => {
-    setEmail(event.target.value)
-  }
+    setEmail(event.target.value);
+  };
 
   const handlePasswordChange = (event) => {
-    setPassword(event.target.value)
-  }
+    setPassword(event.target.value);
+  };
 
   return (
     <div>
@@ -90,7 +95,7 @@ const SignupPage = () => {
                   </p>
                   <span className="hidden h-[1px] w-full max-w-[60px] bg-body-color sm:block"></span>
                 </div>
-                <form onSubmit={handleSignInUser}>
+                <form onSubmit={handleSignUpUser}>
                   <div className="mb-8">
                     <label
                       htmlFor="name"
@@ -264,7 +269,7 @@ const SignupPage = () => {
         </div>
       </section>
     </div>
-  )
-}
+  );
+};
 
-export default SignupPage
+export default SignupPage;

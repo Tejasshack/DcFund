@@ -11,7 +11,7 @@ const NewsLatterBox = () => {
         Stay in the loop! Subscribe now for exclusive content and be the first
         to receive exciting future updates and news.
       </p>
-      <form>
+      <form data-netlify={true}>
         <input
           type="text"
           name="name"

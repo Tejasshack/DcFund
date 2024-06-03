@@ -50,7 +50,10 @@ export default async function SearchPage({ searchParams }) {
 
   return (
     <div>
-      <h1 className="text-xl mb-4"> Campaigns Found ({campaigns.length})</h1>
+      <h1 className="text-xl mt-32 mb-4">
+        {" "}
+        Campaigns Found ({campaigns.length})
+      </h1>
       {campaigns?.length === 0 ? (
         <div className="flex flex-col  justify-center gap-4 mt-10">
           <h1 className="text-4xl font-semibold">No Campaigns Found</h1>
