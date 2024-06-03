@@ -6,7 +6,7 @@ import Logo from "@/public/Logo.png";
 import SectionTitle from "../../components/Common/SectionTitle";
 
 const fetchCampaigns = async () => {
-  const res = await fetch(`http://localhost:3000/api/campaigns`, {
+  const res = await fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/campaigns`, {
     method: "GET",
     cache: "no-cache",
   });
@@ -28,7 +28,7 @@ const fetchCampaigns = async () => {
 };
 
 const fetchTotalCollected = async () => {
-  const res = await fetch(`http://localhost:3000/api/total`, {
+  const res = await fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/total`, {
     method: "GET",
     cache: "no-cache",
   });

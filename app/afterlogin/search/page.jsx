@@ -7,7 +7,7 @@ async function findCampaigns(query) {
 
   const words = query.split(" ");
 
-  const res = await fetch(`http://localhost:3000/api/campaigns`, {
+  const res = await fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/campaigns`, {
     method: "GET",
     cache: "no-cache",
   });

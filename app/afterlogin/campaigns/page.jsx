@@ -3,7 +3,7 @@ import React from "react";
 import Loading from "../loading";
 
 const fetchCampaigns = async (sort) => {
-  const res = await fetch(`http://localhost:3000/api/campaigns`, {
+  const res = await fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/campaigns`, {
     method: "GET",
     cache: "no-cache",
   });

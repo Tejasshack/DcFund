@@ -24,7 +24,8 @@ const AlertModal = ({ setIsOpen, campaignId }) => {
   const handleClick = async (answer) => {
     if (answer === "yes") {
       const res = await fetch(
-        `http://localhost:3000/api/campaigns/${campaignId}`, { method: "PUT" }
+        `${process.env.NEXT_PUBLIC_API_BASE_URL}/campaigns/${campaignId}`,
+        { method: "PUT" },
       );
 
       if (res.ok) toast.success(res.statusText);
