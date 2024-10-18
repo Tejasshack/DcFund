@@ -1,5 +1,5 @@
 
-# DcFund
+# DCFund
 
 **DcFund** is a decentralized crowdfunding platform that leverages blockchain technology to enable transparent and secure fundraising for projects. Built using modern web technologies and decentralized protocols, it empowers users to contribute directly to projects without intermediaries, ensuring transparency and reducing tarrif.
 
